@@ -8,6 +8,29 @@ class Figure:
     def __init__(self, color: tuple, *sides: int):
         if len(sides) == self.sides_count:
             self.__sides = list(sides)
+        else:
+            self.__sides = [1] * self.sides_count
+        self.__color = list(color)
+        self.filled = True
+
+    def get_color(self):
+        return self.__color
+
+    def __is_valid_color(self, r, g, b):
+        return 0 <= r <= 255 and 0 <= g <= 255 and 0 <= b <= 255
+
+    def set_color(selimport math
+from itertools import count
+
+
+class Figure:
+    sides_count = 1
+
+    def __init__(self, color: tuple, *sides: int):
+        if len(sides) == self.sides_count:
+            self.__sides = list(sides)
+        else:
+            self.__sides = [1] * self.sides_count
         self.__color = list(color)
         self.filled = True
 
@@ -86,3 +109,9 @@ cube1.set_sides(5, 3, 12, 4, 5) # Не изменится
 print(cube1.get_sides())
 circle1.set_sides(15) # Изменится
 print(circle1.get_sides())
+
+# Проверка периметра (круга), это и есть длина:
+print(len(circle1))
+
+# Проверка объёма (куба):
+print(cube1.get_volume())
